@@ -20,3 +20,5 @@ export type {
   TimeRangesExpr,
 } from './types.js';
 export { DayOfWeek, Ordinal, ParseError } from './types.js';
+export { formatSchedule } from './intl.js';
+export type { IntlStrings } from './intl.js';

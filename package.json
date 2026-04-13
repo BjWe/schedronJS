@@ -7,15 +7,21 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
     }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc -p tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
     "check": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
